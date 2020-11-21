@@ -1,5 +1,6 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/header') %>
     <div class="container">
+        <a class="btn btn-success btn-lg btn-block mt-2 mb-2" href="/campgrounds/new">Add New Campground!</a>
         <h1 class="display-1 text-center">Campgrounds Page!</h1>
         <h2 class="display-2 text-center">Welcome to YelpCamp!!</h2>
         <% campgrounds.forEach(campground => { %>
@@ -8,4 +9,4 @@
         <% }) %>
         <a class="btn btn-info btn-lg btn-block mt-2 mb-2" href="/">Back to the Home Page!</a>
     </div>
-<%- include('partials/footer.ejs') %>
+<%- include('partials/footer') %>
