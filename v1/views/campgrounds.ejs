@@ -1,0 +1,11 @@
+<%- include('partials/header.ejs') %>
+    <div class="container">
+        <h1 class="display-1 text-center">Campgrounds Page!</h1>
+        <h2 class="display-2 text-center">Welcome to YelpCamp!!</h2>
+        <% campgrounds.forEach(campground => { %>
+            <h3 class="display-3 text-center"><%= campground.name %></h3>
+            <img class="rounded mx-auto d-block" src="<%= campground.image %>" alt="">
+        <% }) %>
+        <a class="btn btn-info btn-lg btn-block mt-2 mb-2" href="/">Back to the Home Page!</a>
+    </div>
+<%- include('partials/footer.ejs') %>
