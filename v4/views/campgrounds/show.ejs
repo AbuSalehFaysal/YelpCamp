@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<div class="container text-center">
+  <div class="card" style="width: 18rem">
+    <img src="<%= campground.image %> " class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h3 class="text-center"><%= campground.name %></h3>
+      <p class="card-text"><%= campground.description %></p>
+      <p><a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a></p>
+      <% campground.comments.forEach(comment => { %>
+       <p> <strong><%= comment.author %></strong> - <%= comment.text %>  </p>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
