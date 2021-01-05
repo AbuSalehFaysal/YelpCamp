@@ -80,7 +80,7 @@ router.get("/:id/edit", checkCampgroundOwnership, function(req, res) {
 // =====================================
 // UPDATE CAMPGROUND
 // =====================================
-router.put("/:id", function(req, res){
+router.put("/:id", checkCampgroundOwnership, function(req, res){
   // FIND AND UPDATE AND REDIRECT TO THE SHOW PAGE
   var data = 
   Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
@@ -95,7 +95,7 @@ router.put("/:id", function(req, res){
 // =====================================
 // DESTROY CAMPGROUND
 // =====================================
-router.delete("/:id", function(req, res){
+router.delete("/:id", checkCampgroundOwnership, function(req, res){
   Campground.findByIdAndDelete(req.params.id, function(err){
     if (err) {
       console.log(err);
@@ -116,6 +116,9 @@ function isLoggedIn(req, res, next) {
   res.redirect("/login");
 }
 
+// ========================================
+// "CHECK CAMPGROUND OWNERSHIP" MIDDLEWARE
+// ========================================
 function checkCampgroundOwnership(req, res, next) {
   // is user logged in?
   if (req.isAuthenticated()) {
